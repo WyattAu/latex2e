@@ -1647,7 +1647,9 @@ shared_callbacks.post_mlist_to_hlist_filter = shared_callbacks.mlist_to_hlist
 %    \begin{macrocode}
 local callback_register = callback_register or callback.register
 function callback.register()
-  luatexbase_error("Attempt to use callback.register() directly\n")
+  luatexbase_error("Attempt to use callback.register() directly\n"
+    .. "Please use luatexbase.add_to_callback() instead.\n"
+    .. "See the luatexbase documentation for details.")
 end
 %    \end{macrocode}
 % \end{macro}
