@@ -1,0 +1,25 @@
+\RequirePackage{latexbug}       % <- first line
+\documentclass{article}
+\usepackage{lib/utils/omnilatex-todo}
+
+\begin{document}
+
+\title{Test: callback.register deprecation}
+\maketitle
+
+This document tests that callback.register() no longer causes a
+fatal error when called by third-party packages.
+
+\section{Test}
+The following should compile without error:
+
+\begin{itemize}
+    \item The omnilatex-todo package loads a Lua file that registers
+          a process\_input\_buffer callback.
+    \item Previously, this would raise a fatal error because
+          callback.register() was trapped.
+    \item With the graceful deprecation fix, it should compile
+          successfully with a warning instead.
+\end{itemize}
+
+\end{document}
